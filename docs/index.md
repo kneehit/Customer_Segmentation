@@ -1,12 +1,12 @@
 Customer Segmentation of Wholesale Distributor
 ==============================================
-**Author:-** Nihit R. Save
-**Date:-** 21st April 2017
+**Author:-** Nihit R. Save <br />
+**Date:-** 21st April 2017 <br />
 
 Dataset: <https://archive.ics.uci.edu/ml/datasets/Wholesale%20customers>
 
 Data Exploration
-----------------
+=============================
 
 Loading required packages and dataset.
 
@@ -121,7 +121,7 @@ train$Region <- factor(train$Region,labels = c("Lisbon","Oporto","Other"))
 ```
 
 K-Means Clustering
-------------------
+=============================
 
 Lets use K-Means clustering to cluster our dataset. K-Means Clustering uses Euclidean distance to assign data point to a cluster and therefore we cannot use categorical variables with it.
 
@@ -135,7 +135,8 @@ We will standardize the dataset so that distance between variables is measured o
 scaled_train <- scale(train2)
 ```
 
-### Determination of optimal number of clusters for K-Means
+Determination of optimal number of clusters for K-Means
+----------------------------------------------------------
 
 We shall use Gap Statistic to compute the optimal number of clusters.
 
@@ -166,7 +167,8 @@ We can see that the optimal number of clusters is 3 as determined by gap statist
 Kmeanscluster <- kmeans(scaled_train,centers = 3,nstart = 25)
 ```
 
-### Interpretation of Clusters
+Interpretation of Clusters
+---------------------------------
 
 Lets visualize our clusters
 
@@ -203,7 +205,7 @@ Average Expenditure on each Product Category by Clusters
 
 
 Partitioning around Medoids(PAM)
---------------------------------
+=============================
 
 Now lets use cluster the dataset by including categorical variable too. For this we will convert the train dataset into Gower Dissimilarity Matrix which consists the measure of dissimilarity between data points. Also since the product categories are skewed we will log transform them.
 
@@ -251,7 +253,8 @@ train[which(GowerMatrix == max(GowerMatrix[GowerMatrix != max(GowerMatrix)]),arr
 
 Both the categorical variables are different while there is huge difference in expenditure of each product category.
 
-### Determining Optimal number of clusters
+Determining Optimal number of clusters
+------------------------------------------
 
 We will use average silhouette method to compute optimal number of clusters. The silhouette of a data point is a measure of how closely it is matched to data within its cluster and how loosely it is matched to data of the neighbouring cluster.
 
@@ -274,7 +277,8 @@ Thus we can see that 2 or 4 is the optimal number of clusters. We will cluster t
 PAMfit <- pam(GowerDistance,diss = TRUE,k = 4)
 ```
 
-### Interpretation Of PAM clusters
+Interpretation Of PAM clusters
+-------------------------------------
 
 ``` r
 clusplot(PAMfit,labels = 2)
@@ -383,9 +387,11 @@ result$ClusterSummary
     ##  Max.   :60869.0   Max.   :2208.0   Max.   :5609.0   Max.   :4
 
 Hierarchical clustering
------------------------
+=============================
 
-### Agglomerative Nesting (AgNes)
+
+Agglomerative Nesting (AgNes)
+---------------------------------------
 
 Using Agglomerative Nesting Hierarchical Clustering
 
@@ -423,7 +429,8 @@ rect.hclust(HCagnes, k = 4, border = 2:5)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-29-1.png)
 
-### Divisive Analysis Clustering (DiAna)
+Divisive Analysis Clustering (DiAna)
+----------------------------------------------
 
 While AGNES combines datapoints into clusters,DIANA divides entire dataset in to clusters until each datapoint is in its own cluster
 
