@@ -9,7 +9,7 @@ Data Exploration
 =============================
 
 Loading required packages and dataset.
-=============================
+
 ``` r
 library(cluster)
 
@@ -36,7 +36,7 @@ str(train)
     ##  $ Delicassen      : int  1338 1776 7844 1788 5185 1451 545 2566 750 2098 ...
 
 We notice that Channel and Region variables are set as integer and will convert them to factor during later stages.
-=============================
+
 ``` r
 summary(train)
 ```
@@ -57,7 +57,7 @@ summary(train)
     ##  Max.   :92780   Max.   :60869.0   Max.   :40827.0   Max.   :47943.0
 
 Outliers are present in every product category and this must be due to very few clients buying in very large amounts.
-=============================
+
 Data Exploration using Graphs
 =============================
 
