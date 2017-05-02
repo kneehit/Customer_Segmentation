@@ -1,7 +1,7 @@
-Wholesale Customer Segmentation
-================
-Nihit R. Save
-13th February 2017
+Customer Segmentation of Wholesale Distributor
+==============================================
+**Author:-** Nihit R. Save
+**Date:-** 21st April 2017
 
 Dataset: <https://archive.ics.uci.edu/ml/datasets/Wholesale%20customers>
 
