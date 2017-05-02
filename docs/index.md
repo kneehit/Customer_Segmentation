@@ -111,9 +111,10 @@ clustertend::hopkins(train,n = 100)
     ## $H
     ## [1] 0.06934606
 
-We get Hopkins Statistic of 0.07 which very close to zero which rejects the null hypothesis that our dataset is uniformly distributed. Hence we can conclude that our dataset has meaningful clusters.
+We get Hopkins Statistic of 0.07. Since this value is very close to zero, we can reject the null hypothesis that our dataset is uniformly distributed. <br />
+Hence we can conclude that our dataset has meaningful clusters.
 
-Before proceding lets convert the Channel and Region variables to factor
+Before proceding lets convert the Channel and Region variables to factor.
 
 ``` r
 train$Channel <- factor(train$Channel,labels = c("HoReCa","Retail"))
@@ -186,16 +187,16 @@ Lets compute the mean of each variable according to their clusters.
 aggregate(train2, by = list(Cluster = Kmeanscluster$cluster), mean) %>% mutate(ClusterSize = Kmeanscluster$size)
 ```
 
-    ##   Cluster     Fresh      Milk   Grocery    Frozen Detergents_Paper
-    ## 1       1 12062.913  4115.099  5534.967  2940.677          1696.17
-    ## 2       2  8129.341 19153.682 28894.909  1859.455         13518.25
-    ## 3       3 60571.667 30120.333 17314.667 38049.333          2153.00
+    ##   Cluster     Fresh      Milk   Grocery    Frozen Detergents_Paper                                    
+    ## 1       1 12062.913  4115.099  5534.967  2940.677          1696.17                                    
+    ## 2       2  8129.341 19153.682 28894.909  1859.455         13518.25                              
+    ## 3       3 60571.667 30120.333 17314.667 38049.333          2153.00                                    
     ##   Delicassen ClusterSize
     ## 1   1299.115         393
     ## 2   2233.841          44
     ## 3  20700.667           3
 
-Lets tabulate the above data so we get better understanding of it.
+Lets tabulate the above data so we get better understanding of it. <br />
 Average Expenditure on each Product Category by Clusters 
 
 | Cluster	| Fresh| Milk | Grocery | Frozen | Detergent & Paper | Delicatessen |
@@ -208,7 +209,7 @@ Average Expenditure on each Product Category by Clusters
 Partitioning around Medoids(PAM)
 =============================
 
-Now lets use cluster the dataset by including categorical variable too. For this we will convert the train dataset into Gower Dissimilarity Matrix which consists the measure of dissimilarity between data points. Also since the product categories are skewed we will log transform them.
+Now lets use cluster the dataset by including categorical variable too. For this we will convert the train dataset into Gower Dissimilarity Matrix which consists the measure of dissimilarity between data points. <br /> Also since the product categories are skewed we will log transform them.
 
 ``` r
 GowerDistance <- daisy(train,metric = "Gower",type = list(logratio = 3:8))
@@ -221,7 +222,7 @@ summary(GowerDistance)
     ## Metric :  mixed ;  Types = N, N, I, I, I, I, I, I 
     ## Number of objects : 440
 
-Lets evaluate the most similar and unsimilar pair of data points so that we can determine if we have computed the dissimilarity matrix efficiently.
+Lets evaluate the most similar and unsimilar pair of data points so that we can determine if we have computed the dissimilarity matrix efficiently. <br />
 
 Most Similar Pair
 
@@ -234,7 +235,7 @@ train[which(GowerMatrix == min(GowerMatrix[GowerMatrix != min(GowerMatrix)]),arr
     ## 108  Retail  Other  8797 10646   14886   2471             8969       1438
     ## 64   Retail  Other  9396 11601   15775   2896             7677       1295
 
-As we can see the categorical variables are same while the difference between expenditure on product categories is small.
+As we can see the categorical variables are same while the difference between expenditure on product categories is small. <br />
 
 Most Dissimilar Pair
 
@@ -251,7 +252,7 @@ Both the categorical variables are different while there is huge difference in e
 Determining Optimal number of clusters
 ------------------------------------------
 
-We will use average silhouette method to compute optimal number of clusters. The silhouette of a data point is a measure of how closely it is matched to data within its cluster and how loosely it is matched to data of the neighbouring cluster.
+We will use average silhouette method to compute optimal number of clusters. <br /> The silhouette of a data point is a measure of how closely it is matched to data within its cluster and how loosely it is matched to data of the neighbouring cluster.
 
 ``` r
 silhouette_width <- NA
@@ -461,4 +462,4 @@ rect.hclust(HCdiana, k = 4, border = 2:5)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-33-1.png)
 
-Thus we have clustered our dataset using various clustering methods like K-Means,PAM,AGNES and DIANA. The distributor can give promotional offers or discounts to his clients based on which cluster they belong.
+Thus we have clustered our dataset using various clustering methods like K-Means,PAM,AGNES and DIANA. <br /> The distributor can give promotional offers or discounts to his clients based on which cluster they belong.
