@@ -61,8 +61,6 @@ Outliers are present in every product category and this must be due to very few 
 Data Exploration using Graphs
 =============================
 
-Plots
-
 ``` r
 library(ggplot2)
 library(gridExtra)
@@ -138,7 +136,7 @@ scaled_train <- scale(train2)
 Determination of optimal number of clusters for K-Means
 ----------------------------------------------------------
 
-We shall use Gap Statistic to compute the optimal number of clusters.
+We will use Gap Statistic to compute the optimal number of clusters.
 
 ``` r
 GapStatistic <- clusGap(scaled_train,FUN = kmeans,K.max = 10)
@@ -177,7 +175,8 @@ library(factoextra)
 fviz_cluster(Kmeanscluster,data = scaled_train)
 ```
 
-![](Wholesale_files/figure-markdown_github/unnamed-chunk-14-1.png) It seems that majority of our observations are clustered in cluste 1 and 2 while cluster 3 has only 3 observations.
+![](Wholesale_files/figure-markdown_github/unnamed-chunk-14-1.png) 
+It seems that majority of our observations are clustered in cluste 1 and 2 while cluster 3 has only 3 observations.
 
 Lets compute the mean of each variable according to their clusters.
 
