@@ -212,12 +212,6 @@ Now lets use cluster the dataset by including categorical variable too. For this
 
 ``` r
 GowerDistance <- daisy(train,metric = "Gower",type = list(logratio = 3:8))
-```
-
-    ## Warning in daisy(train, metric = "Gower", type = list(logratio = 3:8)):
-    ## with mixed variables, metric "gower" is used automatically
-
-``` r
 summary(GowerDistance)
 ```
 
