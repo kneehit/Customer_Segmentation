@@ -97,8 +97,10 @@ grid.arrange(p5,p6)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
-Expenditure on Detegent and Paper products as well as on Delicatessen products seem to be very less as compared to other categories. Also we can notice that all of the product categories are highly skewed. \#\# Tendency to Cluster
+Expenditure on Detegent and Paper products as well as on Delicatessen products seem to be very less as compared to other categories. Also we can notice that all of the product categories are highly skewed. 
 
+Tendency to Cluster
+=============================
 Let check the tendency of our dataset to cluster. This can me computed by Hopkins Statistic.
 
 ``` r
