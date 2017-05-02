@@ -137,7 +137,7 @@ scaled_train <- scale(train2)
 
 ### Determination of optimal number of clusters for K-Means
 
-We shall use Gap Statistic to compute the optimal number of clusters. We will set
+We shall use Gap Statistic to compute the optimal number of clusters.
 
 ``` r
 GapStatistic <- clusGap(scaled_train,FUN = kmeans,K.max = 10)
