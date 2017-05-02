@@ -14,7 +14,6 @@ Our task is to segment the clients so that the distributor can come up with prom
 Dataset:- https://archive.ics.uci.edu/ml/datasets/Wholesale%20customers
 
 Dataset Information
-----------------------------------------------------------
 
 The dataset which can be found at link above, consists of following variables:
 
