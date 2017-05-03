@@ -12,6 +12,7 @@ It includes the annual spending in monetary units (m.u.) on diverse product cate
 Our task is to segment the clients so that the distributor can come up with promotional offers. 
 
 Dataset Information
+
 The dataset which can be found at link above, consists of following variables:
 
 Variable | Description
@@ -94,7 +95,7 @@ grid.arrange(p1,p2)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
-Even though the number of clients buying frozen products under 10,000 is much more, overall sale of fresh products is greater. This must be due to customers of the wholesale clients preferring to buy fresh products instead of frozen.
+Even though the number of clients buying frozen products under 10,000 is much more, overall sale of fresh products is greater. <br /> This must be due to customers of the wholesale clients preferring to buy fresh products instead of frozen.
 
 ``` r
 p3 <- ggplot(train,aes(Grocery)) + geom_histogram(col = "black",fill="lightgreen") +ylab("Number of Clients") + scale_x_continuous(breaks = seq(0,100000,10000)) +ylab("Number of Clients") + scale_y_continuous(breaks = seq(0,180,10)) + ylab("Number of Clients") + xlab("Annual Spending on Grocery Products") + ggtitle("Number of Clients and their Expenditure on Grocery Prdoucts")
@@ -106,7 +107,7 @@ grid.arrange(p3,p4)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
-The expenditure on milk and grocery products seems to be almost equal. This must be due to customers consuming these products on daily basis.
+The expenditure on milk and grocery products seems to be almost equal. <br /> This must be due to customers consuming these products on daily basis.
 
 ``` r
 p5 <- ggplot(train,aes(Detergents_Paper)) + geom_histogram(col = "black",fill="gray80") + scale_x_continuous(breaks = seq(0,50000,10000)) +ylab("Number of Clients") + scale_y_continuous(breaks = seq(0,210,10)) + ylab("Number of Clients") + xlab("Annual Spending on Detergent and Paper Products") + ggtitle("Number of Clients and their Expenditure on Detergent and Paper Prdoucts")
@@ -118,8 +119,8 @@ grid.arrange(p5,p6)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
-Expenditure on Detegent and Paper products as well as on Delicatessen products seem to be very less as compared to other categories. Also we can notice that all of the product categories are highly skewed. 
-
+Expenditure on Detegent and Paper products as well as on Delicatessen products seem to be very less as compared to other categories.  <br /> Also we can notice that all of the product categories are highly skewed. 
+  
 Tendency to Cluster
 =============================
 Let check the tendency of our dataset to cluster. This can me computed by Hopkins Statistic.
@@ -419,7 +420,7 @@ plot(as.hclust(HCagnes))
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-26-1.png)
 
-AGNES considers every data point as cluster and then combines most similar clusters till only one cluster is left. Therefore we will specify the number of clusters it should stop clustering at.
+AGNES considers every data point as cluster and then combines most similar clusters till only one cluster is left. <br /> Therefore we will specify the number of clusters it should stop clustering at.
 
 ``` r
 clusteredtrain$AgnesCluster <- cutree(HCagnes,k = 4)
@@ -449,7 +450,7 @@ rect.hclust(HCagnes, k = 4, border = 2:5)
 Divisive Analysis Clustering (DiAna)
 ----------------------------------------------
 
-While AGNES combines datapoints into clusters,DIANA divides entire dataset in to clusters until each datapoint is in its own cluster
+While AGNES combines datapoints into clusters,DIANA divides entire dataset in to clusters until each datapoint is in its own cluster.
 
 ``` r
 HCdiana <- diana(GowerDistance,diss = TRUE)
