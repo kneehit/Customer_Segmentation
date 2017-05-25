@@ -201,7 +201,7 @@ fviz_cluster(Kmeanscluster,data = scaled_train)
 ```
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-14-1.png) 
-It seems that majority of our observations are clustered in cluste 1 and 2 while cluster 3 has only 3 observations.
+It seems that majority of our observations are clustered in cluster 1 and 2 while cluster 3 has only 3 observations.
 
 Lets compute the mean of each variable according to their clusters.
 
@@ -231,7 +231,7 @@ Average Expenditure on each Product Category by Clusters
 Partitioning around Medoids(PAM)
 =============================
 
-Now lets use cluster the dataset by including categorical variable too. For this we will convert the train dataset into Gower Dissimilarity Matrix which consists the measure of dissimilarity between data points. <br /> Also since the product categories are skewed we will log transform them.
+Now lets cluster the dataset by including categorical variable too. For this we will convert the train dataset into Gower Dissimilarity Matrix which consists the measure of dissimilarity between data points. <br /> Also since the product categories are skewed we will log transform them.
 
 ``` r
 GowerDistance <- daisy(train,metric = "Gower",type = list(logratio = 3:8))
