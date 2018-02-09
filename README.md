@@ -5,7 +5,11 @@ The data set consists of clients of a wholesale distributor.
 It includes the annual spending in monetary units (m.u.) on diverse product categories. <br />
 Our task is to segment the clients so that the distributor can come up with promotional offers. 
 
-Dataset:- https://archive.ics.uci.edu/ml/datasets/Wholesale%20customers
+#### Dataset:- https://archive.ics.uci.edu/ml/datasets/Wholesale%20customers
+
+## Solution
+
+#### Website:- https://kneehit.github.io/Customer_Segmentation/
 
 ## Dataset Information
 
