@@ -202,7 +202,7 @@ fviz_cluster(Kmeanscluster,data = scaled_train)
 
 ![](Wholesale_files/figure-markdown_github/unnamed-chunk-14-1.png) 
 It seems that majority of our observations are clustered in cluster 1 and 2 while cluster 3 has only 3 observations.
-
+It doesn't look like K-Means did a good job clustering properly since cluster 1 and 2 are very close to each other.
 Lets compute the mean of each variable according to their clusters.
 
 ``` r
